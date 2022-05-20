@@ -1,25 +1,27 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import items from './data/items';
 import Box from './Box';
-import NavigationBottom from './NavigationBottom';
 
 function StoreScreen() {
     return (
         <View style={{flex:3,justifyContent: 'center', alignItems: 'center', backgroundColor: 'green'}}>
-           <Text>{
-               items.map((item, i) => (
-                    <Box
-                        key = {i}
-                        item = {item.id}
-                        title = {item.title}
-                        description = {item.description}
-                        image = {item.image}
-                        stock = {item.stock}
-                    />
-               ))
-            }</Text>
-           <NavigationBottom/>
+            <ScrollView>
+                <Text>{
+                    items.map((item, i) => (
+                        <Box
+                            key = {i}
+                            item = {item.id}
+                            title = {item.title}
+                            description = {item.description}
+                            image = {item.image}
+                            stock = {item.stock}
+                            stockf= {item.stockf}
+                        />
+                    )) 
+                }
+                </Text>
+            </ScrollView>
         </View>
     );
 }
@@ -33,6 +35,9 @@ const styles = StyleSheet.create({
         padding:5,
         width: 300,
         height: 100,
+    },
+    container:{
+        marginBottom:80,        
     }
 })
 

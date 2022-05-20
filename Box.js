@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View, Text, Button, Image} from 'react-native';
-
-function Box({id, title, description, image, stock}) {
+function Box({id, title, description, image, stock, stockf}) {
     const navigation = useNavigation();
     return (
         <View style={styles.root}>
@@ -10,7 +9,7 @@ function Box({id, title, description, image, stock}) {
                 style={{ width: 150, height: 150 }}
                 source={{ uri: image}}
             />
-            <Text>{title}</Text>
+            <Text style={styles.titulo}>{title}</Text>
             <Text>{description}</Text>
                 <Button
                     color="#455a64"
@@ -22,6 +21,7 @@ function Box({id, title, description, image, stock}) {
                             description: description,
                             image: image,
                             stock: stock,
+                            stockf: stockf,
                         })
                     }
                 />
@@ -30,6 +30,10 @@ function Box({id, title, description, image, stock}) {
 }
 
 const styles = StyleSheet.create({
+    titulo:{
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
     root:{
         width: 180,
         height: 300,
